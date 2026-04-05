@@ -1,0 +1,52 @@
+{
+  "name": "qiankun-multi-vue-stacks",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "x-comments": {
+    "workspace": "根目录统一维护 main、subapps 和少量 shared 代码，不再依赖额外 packages 抽象层。",
+    "dev": "dev 相关脚本用于本地联调矩阵。",
+    "build": "build 相关脚本统一走各 workspace 自己的构建命令。",
+    "contracts": "contracts:* 用于校验主子应用契约、配置模型和桥接层约束。"
+  },
+  "workspaces": [
+    "main",
+    "subapps/legacy-vue2",
+    "subapps/wms-vue3",
+    "subapps/ops-react",
+    "subapps/portal-vite-vue",
+    "subapps/console-vite-react"
+  ],
+  "scripts": {
+    "install:all": "npm install --workspaces",
+    "dev": "node ./scripts/dev/start-all.mjs",
+    "dev:main": "npm run dev --workspace main",
+    "dev:matrix:stable": "node ./scripts/dev/start-all.mjs stable",
+    "dev:matrix:qiankun": "node ./scripts/dev/start-all.mjs qiankun",
+    "dev:matrix:rollback": "node ./scripts/dev/start-all.mjs rollback",
+    "dev:app:legacy": "npm run dev --workspace subapps/legacy-vue2",
+    "dev:app:wms": "npm run dev --workspace subapps/wms-vue3",
+    "dev:app:ops": "npm run dev --workspace subapps/ops-react",
+    "dev:app:vite-vue": "npm run dev --workspace subapps/portal-vite-vue",
+    "dev:app:vite-react": "npm run dev --workspace subapps/console-vite-react",
+    "build:main": "npm run build --workspace main",
+    "build:subapp:legacy": "npm run build --workspace subapps/legacy-vue2",
+    "build:subapp:wms": "npm run build --workspace subapps/wms-vue3",
+    "build:subapp:ops": "npm run build --workspace subapps/ops-react",
+    "build:subapp:vite-vue": "npm run build --workspace subapps/portal-vite-vue",
+    "build:subapp:vite-react": "npm run build --workspace subapps/console-vite-react",
+    "contracts:registry": "node ./tests/contracts/validate-registry.mjs",
+    "contracts:runtime-vendor": "node ./tests/contracts/validate-runtime-vendor.mjs",
+    "contracts:cleanup-bag": "node ./tests/contracts/validate-cleanup-bag.mjs",
+    "contracts:main": "node ./tests/contracts/validate-main-contracts.mjs",
+    "contracts:config": "node ./tests/contracts/validate-config-model.mjs",
+    "contracts:bridge": "node ./tests/contracts/validate-bridge-contracts.mjs",
+    "lint": "node ./scripts/lint/run-lint.mjs",
+    "test": "npm run contracts:registry && npm run contracts:runtime-vendor && npm run contracts:cleanup-bag && npm run contracts:main && npm run contracts:config && npm run contracts:bridge",
+    "smoke": "node ./scripts/smoke/run-smoke.mjs"
+  },
+  "devDependencies": {
+    "css-loader": "^7.1.4",
+    "style-loader": "^4.0.0"
+  }
+}

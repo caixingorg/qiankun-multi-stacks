@@ -1,0 +1,22 @@
+{
+  "name": "subapp-vite-react-console",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite --port 7302 --strictPort",
+    "start": "npm run dev",
+    "build": "vite build",
+    "start:qiankun": "QIANKUN_DEV_MODE=host vite --port 7302 --strictPort",
+    "start:rollback": "ROLLBACK_ENTRY_MODE=true vite --port 7312 --strictPort",
+    "start:rollback:qiankun": "ROLLBACK_ENTRY_MODE=true QIANKUN_DEV_MODE=host vite --port 7312 --strictPort"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "vite-plugin-qiankun": "^1.0.15"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
+    "vite": "^8.0.3"
+  }
+}

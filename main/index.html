@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main App</title>
+    <!--
+      运行时脚本加载顺序（必须严格遵守）：
+        1. deploy-env.js      — CI/CD 注入部署环境标识（window.__MAIN_DEPLOY_ENV__）
+        2. mock-auth.js       — 开发期 SSO 模拟（localhost 才注入；生产由 BFF 服务端渲染替换）
+        3. runtime-config.js  — 读取 __MAIN_DEPLOY_ENV__，写入 window.__MAIN_RUNTIME_CONFIG__
+        4. runtime-vendor.global.js — 平台级能力（懒读 runtime-config，顺序要求宽松）
+    -->
+    <script src="/runtime/deploy-env.js"></script>
+    <script src="/runtime/mock-auth.js"></script>
+    <script src="/runtime/runtime-config.js"></script>
+    <script src="/runtime/runtime-vendor.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 静态 loading 占位，JS 执行前即可显示；createRoot().render() 执行后自动替换 -->
+      <div id="app-loading" style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;color:#64748b;font-size:14px;letter-spacing:.05em">
+        加载中…
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

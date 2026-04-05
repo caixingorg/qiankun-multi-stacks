@@ -1,0 +1,71 @@
+.wms-root {
+  box-sizing: border-box;
+}
+
+.wms-root .wms-page-shell__header {
+  margin-bottom: 14px;
+}
+
+.wms-root .wms-page-shell__title {
+  margin: 0 0 8px;
+}
+
+.wms-root .wms-page-shell__description {
+  margin: 0;
+  color: #275684;
+  line-height: 1.5;
+}
+
+.wms-root .wms-page-shell__body {
+  display: block;
+}
+
+.wms-root .wms-ui-card {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid #c8dbf7;
+  border-radius: 10px;
+  background: #f7fbff;
+}
+
+.wms-root .wms-ui-card__title {
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.wms-root .wms-ui-card__body {
+  display: block;
+}
+
+.wms-root .wms-ui-card__row {
+  margin: 4px 0;
+}
+
+.wms-root .wms-ui-card__label {
+  margin-right: 6px;
+  color: #275684;
+  font-weight: 600;
+}
+
+.wms-root .wms-ui-card__value {
+  color: #09396b;
+}
+
+.wms-root .wms-ui-button {
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  border: 1px solid #588dc7;
+  border-radius: 8px;
+  background: #e8f2ff;
+  cursor: pointer;
+}
+
+.wms-root .wms-ui-button--active {
+  background: #dcecff;
+}
+
+.wms-root .wms-actions-title {
+  margin: 0 0 8px;
+  font-weight: 700;
+}

@@ -1,0 +1,83 @@
+.vite-vue-root {
+  padding: 18px;
+  border: 1px solid #6f8f72;
+  background: linear-gradient(180deg, #f7f8ef 0%, #eef3df 100%);
+  color: #1f3a25;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.vite-vue-root h3 {
+  margin: 0 0 10px;
+}
+
+.vite-vue-root p {
+  margin: 6px 0;
+}
+
+.vite-vue-root .portal-page-shell__header {
+  margin-bottom: 14px;
+}
+
+.vite-vue-root .portal-page-shell__title {
+  margin: 0 0 8px;
+}
+
+.vite-vue-root .portal-page-shell__description {
+  margin: 0;
+  color: #4f6647;
+  line-height: 1.5;
+}
+
+.vite-vue-root .portal-page-shell__body {
+  display: block;
+}
+
+.vite-vue-root .portal-ui-card {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid #d7e7c9;
+  border-radius: 10px;
+  background: #f8fbf2;
+}
+
+.vite-vue-root .portal-ui-card__title {
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.vite-vue-root .portal-ui-card__body {
+  display: block;
+}
+
+.vite-vue-root .portal-ui-card__row {
+  margin: 4px 0;
+}
+
+.vite-vue-root .portal-ui-card__label {
+  margin-right: 6px;
+  color: #4f6647;
+  font-weight: 600;
+}
+
+.vite-vue-root .portal-ui-card__value {
+  color: #1f3a25;
+}
+
+.vite-vue-root .portal-ui-button {
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  border: 1px solid #66805b;
+  border-radius: 8px;
+  background: #eef6de;
+  cursor: pointer;
+}
+
+.vite-vue-root .portal-ui-button--active {
+  background: #dfeccd;
+}
+
+.vite-vue-root .portal-actions-title {
+  margin: 0 0 8px;
+  font-weight: 700;
+}

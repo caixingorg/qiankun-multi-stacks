@@ -1,0 +1,74 @@
+.react-ops-root {
+  box-sizing: border-box;
+}
+
+.react-ops-root .subapp-ui-card {
+  padding: 12px;
+  border: 1px solid #cce8d3;
+  border-radius: 10px;
+  background: #f6fff8;
+}
+
+.react-ops-root .subapp-ui-card__title {
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.react-ops-root .subapp-ui-card__body {
+  display: grid;
+  gap: 6px;
+}
+
+.react-ops-root .subapp-ui-button {
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  border: 1px solid #4b8f5c;
+  border-radius: 8px;
+  background: #e5f7ea;
+  cursor: pointer;
+}
+
+.react-ops-root .subapp-ui-button--active {
+  background: #d8f1df;
+}
+
+.react-ops-root .subapp-page-shell__header {
+  margin-bottom: 14px;
+}
+
+.react-ops-root .subapp-page-shell__title {
+  margin: 0 0 8px;
+}
+
+.react-ops-root .subapp-page-shell__description {
+  margin: 0;
+  color: #2d5a39;
+  line-height: 1.5;
+}
+
+.react-ops-root .subapp-page-shell__body {
+  display: grid;
+  gap: 12px;
+}
+
+.react-ops-root .subapp-info-panel__rows {
+  display: grid;
+  gap: 6px;
+}
+
+.react-ops-root .subapp-info-panel__row {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 8px;
+}
+
+.react-ops-root .subapp-info-panel__label {
+  color: #4e7e5a;
+  font-weight: 600;
+}
+
+.react-ops-root .subapp-info-panel__value {
+  color: #114b1f;
+}

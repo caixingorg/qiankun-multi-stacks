@@ -1,0 +1,86 @@
+.vite-react-root {
+  padding: 18px;
+  border: 1px solid #90a6c6;
+  background: linear-gradient(180deg, #fbfcff 0%, #edf2fb 100%);
+  color: #132a43;
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+}
+
+.vite-react-root .subapp-ui-card {
+  padding: 12px;
+  border: 1px solid #d8dfef;
+  border-radius: 10px;
+  background: #f8faff;
+}
+
+.vite-react-root .subapp-ui-card__title {
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.vite-react-root .subapp-ui-card__body {
+  display: grid;
+  gap: 6px;
+}
+
+.vite-react-root .subapp-ui-button {
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  border: 1px solid #6f86a8;
+  border-radius: 8px;
+  background: #edf2fb;
+  cursor: pointer;
+}
+
+.vite-react-root .subapp-ui-button--active {
+  background: #dfe8f8;
+}
+
+.vite-react-root h3 {
+  margin: 0 0 10px;
+}
+
+.vite-react-root p {
+  margin: 6px 0;
+}
+
+.vite-react-root .subapp-page-shell__header {
+  margin-bottom: 14px;
+}
+
+.vite-react-root .subapp-page-shell__title {
+  margin: 0 0 8px;
+}
+
+.vite-react-root .subapp-page-shell__description {
+  margin: 0;
+  color: #36516f;
+  line-height: 1.5;
+}
+
+.vite-react-root .subapp-page-shell__body {
+  display: grid;
+  gap: 12px;
+}
+
+.vite-react-root .subapp-info-panel__rows {
+  display: grid;
+  gap: 6px;
+}
+
+.vite-react-root .subapp-info-panel__row {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 8px;
+}
+
+.vite-react-root .subapp-info-panel__label {
+  color: #5c7394;
+  font-weight: 600;
+}
+
+.vite-react-root .subapp-info-panel__value {
+  color: #132a43;
+}

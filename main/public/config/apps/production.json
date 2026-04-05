@@ -1,0 +1,74 @@
+{
+  "apps": [
+    {
+      "key": "legacy",
+      "name": "subapp-vue2-legacy",
+      "title": "Legacy Vue2",
+      "activeRule": "/legacy",
+      "permission": "legacy:view",
+      "defaultChildPath": "/orders/pending",
+      "entries": {
+        "stable": "//cdn.scm-platform.example.com/subapps/legacy/stable/",
+        "rollback": "//cdn.scm-platform.example.com/subapps/legacy/rollback/"
+      },
+      "rollbackMode": "dedicated-entry",
+      "rollbackValidationPath": "/legacy?channel=rollback"
+    },
+    {
+      "key": "wms",
+      "name": "subapp-vue3-wms",
+      "title": "WMS Vue3",
+      "activeRule": "/wms",
+      "permission": "wms:view",
+      "defaultChildPath": "/wave/board",
+      "entries": {
+        "stable": "//cdn.scm-platform.example.com/subapps/wms/stable/",
+        "rollback": "//cdn.scm-platform.example.com/subapps/wms/stable/"
+      },
+      "rollbackMode": "shared-entry",
+      "rollbackValidationPath": ""
+    },
+    {
+      "key": "ops",
+      "name": "subapp-react-ops",
+      "title": "Ops React",
+      "activeRule": "/ops",
+      "permission": "ops:view",
+      "defaultChildPath": "/dashboard",
+      "entries": {
+        "stable": "//cdn.scm-platform.example.com/subapps/ops/stable/",
+        "rollback": "//cdn.scm-platform.example.com/subapps/ops/rollback/"
+      },
+      "rollbackMode": "dedicated-entry",
+      "rollbackValidationPath": "/ops?channel=rollback"
+    },
+    {
+      "key": "viteVue",
+      "name": "subapp-vite-vue-portal",
+      "title": "Portal Vite Vue",
+      "activeRule": "/vite-vue",
+      "permission": "portal:view",
+      "defaultChildPath": "/workspace",
+      "entries": {
+        "stable": "//cdn.scm-platform.example.com/subapps/portal/stable/",
+        "rollback": "//cdn.scm-platform.example.com/subapps/portal/stable/"
+      },
+      "rollbackMode": "shared-entry",
+      "rollbackValidationPath": ""
+    },
+    {
+      "key": "viteReact",
+      "name": "subapp-vite-react-console",
+      "title": "Console Vite React",
+      "activeRule": "/vite-react",
+      "permission": "console:view",
+      "defaultChildPath": "/audit-log",
+      "entries": {
+        "stable": "//cdn.scm-platform.example.com/subapps/console/stable/",
+        "rollback": "//cdn.scm-platform.example.com/subapps/console/rollback/"
+      },
+      "rollbackMode": "dedicated-entry",
+      "rollbackValidationPath": "/vite-react?channel=rollback"
+    }
+  ]
+}

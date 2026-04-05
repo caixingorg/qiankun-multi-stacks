@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1680" viewBox="0 0 1280 1680">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 30px Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 400 16px Arial, sans-serif; fill: #475569; }
+      .box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 18; ry: 18; }
+      .boxMain { fill: #eff6ff; stroke: #60a5fa; }
+      .boxSub { fill: #f0fdf4; stroke: #4ade80; }
+      .boxRuntime { fill: #fff7ed; stroke: #fb923c; }
+      .label { font: 700 18px Arial, sans-serif; fill: #0f172a; }
+      .text { font: 400 15px Arial, sans-serif; fill: #334155; }
+      .arrow { stroke: #64748b; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1280" height="1680" />
+
+  <text class="title" x="640" y="56" text-anchor="middle">整体运行流程图</text>
+  <text class="subtitle" x="640" y="84" text-anchor="middle">main / runtime config / manifest / qiankun / subapp bridge / render</text>
+
+  <rect class="box boxMain" x="340" y="120" width="600" height="80" />
+  <text class="label" x="640" y="152" text-anchor="middle">1. 浏览器进入主应用路由</text>
+  <text class="text" x="640" y="178" text-anchor="middle">例如 /ops /wms /vite-vue /vite-react</text>
+
+  <rect class="box boxMain" x="340" y="250" width="600" height="96" />
+  <text class="label" x="640" y="282" text-anchor="middle">2. main/src/main.js 启动</text>
+  <text class="text" x="640" y="308" text-anchor="middle">读取运行时配置、初始化上下文、创建事件总线</text>
+  <text class="text" x="640" y="330" text-anchor="middle">并准备主应用壳层渲染</text>
+
+  <rect class="box boxRuntime" x="340" y="396" width="600" height="108" />
+  <text class="label" x="640" y="428" text-anchor="middle">3. 读取 runtime-config 和环境配置</text>
+  <text class="text" x="640" y="454" text-anchor="middle">config-service 解析 env / channel / appManifestPath</text>
+  <text class="text" x="640" y="476" text-anchor="middle">app-manifest-loader 加载 apps.local/test/staging/production.json</text>
+
+  <rect class="box boxMain" x="340" y="554" width="600" height="96" />
+  <text class="label" x="640" y="586" text-anchor="middle">4. 主应用壳层渲染</text>
+  <text class="text" x="640" y="612" text-anchor="middle">renderMainShell -> Header / Sidebar / MainCanvas</text>
+  <text class="text" x="640" y="634" text-anchor="middle">并预留 #subapp-viewport 作为挂载容器</text>
+
+  <rect class="box boxMain" x="340" y="700" width="600" height="108" />
+  <text class="label" x="640" y="732" text-anchor="middle">5. qiankun 注册子应用</text>
+  <text class="text" x="640" y="758" text-anchor="middle">registerMainMicroApps 按 runtime registry 注册 activeRule / entry / props</text>
+  <text class="text" x="640" y="780" text-anchor="middle">并注入 actions / bus / sharedKernel / navigation / permissionContext</text>
+
+  <rect class="box boxRuntime" x="340" y="858" width="600" height="96" />
+  <text class="label" x="640" y="890" text-anchor="middle">6. entry-resolver 解析实际入口</text>
+  <text class="text" x="640" y="916" text-anchor="middle">根据 channel / rollbackApp / failApp 选择 stable 或 rollback entry</text>
+  <text class="text" x="640" y="938" text-anchor="middle">然后由 qiankun 拉取对应子应用资源</text>
+
+  <rect class="box boxSub" x="340" y="1004" width="600" height="108" />
+  <text class="label" x="640" y="1036" text-anchor="middle">7. 子应用 bridge 执行 mount</text>
+  <text class="text" x="640" y="1062" text-anchor="middle">micro-app.js 调用 assertMainContract(props)</text>
+  <text class="text" x="640" y="1084" text-anchor="middle">然后 buildViewModel(props) 生成子应用稳定消费结构</text>
+
+  <rect class="box boxSub" x="340" y="1162" width="600" height="96" />
+  <text class="label" x="640" y="1194" text-anchor="middle">8. renderApp(container, viewModel)</text>
+  <text class="text" x="640" y="1220" text-anchor="middle">子应用把页面挂到 main 的 #subapp-viewport 内部</text>
+  <text class="text" x="640" y="1242" text-anchor="middle">不会再覆盖主应用根节点</text>
+
+  <rect class="box boxSub" x="340" y="1308" width="600" height="108" />
+  <text class="label" x="640" y="1340" text-anchor="middle">9. 子应用内部页面渲染</text>
+  <text class="text" x="640" y="1366" text-anchor="middle">pages / modules / components / services / stores 协同渲染</text>
+  <text class="text" x="640" y="1388" text-anchor="middle">并通过 bridge/get-host-context 消费主应用上下文</text>
+
+  <rect class="box boxRuntime" x="340" y="1466" width="600" height="108" />
+  <text class="label" x="640" y="1498" text-anchor="middle">10. 运行期治理</text>
+  <text class="text" x="640" y="1524" text-anchor="middle">主应用统一处理 runtime error / rollback / status summary</text>
+  <text class="text" x="640" y="1546" text-anchor="middle">并通过 lint / test / smoke 维持结构稳定</text>
+
+  <path class="arrow" d="M640 200 L640 250" />
+  <path class="arrow" d="M640 346 L640 396" />
+  <path class="arrow" d="M640 504 L640 554" />
+  <path class="arrow" d="M640 650 L640 700" />
+  <path class="arrow" d="M640 808 L640 858" />
+  <path class="arrow" d="M640 954 L640 1004" />
+  <path class="arrow" d="M640 1112 L640 1162" />
+  <path class="arrow" d="M640 1258 L640 1308" />
+  <path class="arrow" d="M640 1416 L640 1466" />
+</svg>

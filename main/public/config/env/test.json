@@ -1,0 +1,7 @@
+{
+  "envName": "test",
+  "apiBaseUrl": "/api",
+  "releaseChannel": "stable",
+  "appManifestPath": "/config/apps/test.json",
+  "releasePolicySource": "manifest"
+}

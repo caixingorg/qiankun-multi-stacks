@@ -1,0 +1,7 @@
+{
+  "envName": "production",
+  "apiBaseUrl": "/api",
+  "releaseChannel": "stable",
+  "appManifestPath": "/config/apps/production.json",
+  "releasePolicySource": "manifest"
+}

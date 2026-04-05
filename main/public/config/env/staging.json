@@ -1,0 +1,7 @@
+{
+  "envName": "staging",
+  "apiBaseUrl": "/api",
+  "releaseChannel": "stable",
+  "appManifestPath": "/config/apps/staging.json",
+  "releasePolicySource": "manifest"
+}

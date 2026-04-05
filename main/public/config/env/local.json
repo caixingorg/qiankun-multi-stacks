@@ -1,0 +1,7 @@
+{
+  "envName": "local",
+  "apiBaseUrl": "/api",
+  "releaseChannel": "stable",
+  "appManifestPath": "/config/apps/local.json",
+  "releasePolicySource": "manifest"
+}

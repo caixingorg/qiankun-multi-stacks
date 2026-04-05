@@ -1,0 +1,69 @@
+{
+  "apps": [
+    {
+      "key": "legacy",
+      "name": "subapp-vue2-legacy",
+      "title": "Legacy Vue2",
+      "activeRule": "/legacy",
+      "defaultChildPath": "/orders/pending",
+      "entries": {
+        "stable": "/test/apps/legacy/",
+        "rollback": "/test/apps/legacy-rollback/"
+      },
+      "rollbackMode": "dedicated-entry",
+      "rollbackValidationPath": "/legacy?channel=rollback"
+    },
+    {
+      "key": "wms",
+      "name": "subapp-vue3-wms",
+      "title": "WMS Vue3",
+      "activeRule": "/wms",
+      "defaultChildPath": "/wave/board",
+      "entries": {
+        "stable": "/test/apps/wms/",
+        "rollback": "/test/apps/wms/"
+      },
+      "rollbackMode": "shared-entry",
+      "rollbackValidationPath": ""
+    },
+    {
+      "key": "ops",
+      "name": "subapp-react-ops",
+      "title": "Ops React",
+      "activeRule": "/ops",
+      "defaultChildPath": "/dashboard",
+      "entries": {
+        "stable": "/test/apps/ops/",
+        "rollback": "/test/apps/ops-rollback/"
+      },
+      "rollbackMode": "dedicated-entry",
+      "rollbackValidationPath": "/ops?channel=rollback"
+    },
+    {
+      "key": "viteVue",
+      "name": "subapp-vite-vue-portal",
+      "title": "Portal Vite Vue",
+      "activeRule": "/vite-vue",
+      "defaultChildPath": "/workspace",
+      "entries": {
+        "stable": "/test/apps/portal/",
+        "rollback": "/test/apps/portal/"
+      },
+      "rollbackMode": "shared-entry",
+      "rollbackValidationPath": ""
+    },
+    {
+      "key": "viteReact",
+      "name": "subapp-vite-react-console",
+      "title": "Console Vite React",
+      "activeRule": "/vite-react",
+      "defaultChildPath": "/audit-log",
+      "entries": {
+        "stable": "/test/apps/console/",
+        "rollback": "/test/apps/console-rollback/"
+      },
+      "rollbackMode": "dedicated-entry",
+      "rollbackValidationPath": "/vite-react?channel=rollback"
+    }
+  ]
+}

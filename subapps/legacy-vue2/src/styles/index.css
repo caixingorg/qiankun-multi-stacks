@@ -1,0 +1,71 @@
+.legacy-root {
+  box-sizing: border-box;
+}
+
+.legacy-root .legacy-page-shell__header {
+  margin-bottom: 14px;
+}
+
+.legacy-root .legacy-page-shell__title {
+  margin: 0 0 8px;
+}
+
+.legacy-root .legacy-page-shell__description {
+  margin: 0;
+  color: #8b5a18;
+  line-height: 1.5;
+}
+
+.legacy-root .legacy-page-shell__body {
+  display: block;
+}
+
+.legacy-root .legacy-ui-card {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid #e7d3b3;
+  border-radius: 10px;
+  background: #fff8ee;
+}
+
+.legacy-root .legacy-ui-card__title {
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.legacy-root .legacy-ui-card__body {
+  display: block;
+}
+
+.legacy-root .legacy-ui-card__row {
+  margin: 4px 0;
+}
+
+.legacy-root .legacy-ui-card__label {
+  margin-right: 6px;
+  color: #8b5a18;
+  font-weight: 600;
+}
+
+.legacy-root .legacy-ui-card__value {
+  color: #5f3a00;
+}
+
+.legacy-root .legacy-ui-button {
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  border: 1px solid #b68c57;
+  border-radius: 8px;
+  background: #fff2d9;
+  cursor: pointer;
+}
+
+.legacy-root .legacy-ui-button--active {
+  background: #ffe4b8;
+}
+
+.legacy-root .legacy-actions-title {
+  margin: 0 0 8px;
+  font-weight: 700;
+}
