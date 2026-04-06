@@ -36,6 +36,11 @@ import { resolveRuntimeEntry } from './runtime/resolve-app-entry.js';
 import { supportsDedicatedRollback } from './runtime/rollback-policy.js';
 import { registerSubapps } from './runtime/register-subapps.js';
 import { handleRuntimeRollback } from './runtime/handle-runtime-rollback.js';
+import {
+  clearDynamicMountManager,
+  createDynamicMountManager,
+  setDynamicMountManager,
+} from './runtime/dynamic-mount-manager.js';
 
 // ─── 共享内核（暴露给子应用的能力面） ──────────────────────────────────────────
 import { createSharedKernel } from './shared/shared-kernel.js';
@@ -101,6 +106,21 @@ async function bootstrapMain() {
       return hostState;
     },
   });
+
+  const dynamicMountManager = setDynamicMountManager(
+    createDynamicMountManager({
+      appRegistry,
+      actions,
+      bus,
+      sharedKernel,
+      mainContext,
+      governedNavigation,
+      dependencyPolicy,
+      logger,
+      resolveRuntimeEntry,
+      channelState,
+    })
+  );
 
   // ── 8. 构建初始运行时摘要，写入 shell-store ────────────────────────────────
   //    store 成为所有 Layout 组件的单一数据源；后续变更通过 store action 写入，
@@ -217,7 +237,11 @@ async function bootstrapMain() {
   });
 
   // 返回清理函数，供测试或热重载场景调用
-  return () => shellCleanups.forEach((fn) => fn());
+  return async () => {
+    await dynamicMountManager.unmountAll();
+    clearDynamicMountManager();
+    shellCleanups.forEach((fn) => fn());
+  };
 }
 
 bootstrapMain().catch((err) => {

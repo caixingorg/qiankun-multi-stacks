@@ -7,6 +7,7 @@
 //   - 注册内容来自 main.js，本文件不自己创建任何单例
 //   - onBeforeLoad 地址研、日志记录、qiankun 全局状态同步全在此处帯走
 import { registerMicroApps } from 'qiankun';
+import { createSubappHostProps } from './create-subapp-host-props.js';
 
 export function registerSubapps({
   appRegistry,
@@ -30,19 +31,15 @@ export function registerSubapps({
       container: '#subapp-viewport',
       activeRule: app.activeRule,
       // props: Host 向子应用注入的全部能力对象
-      props: {
-        fromHost: 'qiankun host',
+      props: createSubappHostProps({
+        app,
         actions,
         bus,
         sharedKernel,
-        userContext: mainContext.user,
-        envContext: mainContext.envContext,
-        permissionContext: mainContext.permissionContext,
-        contractVersion: mainContext.contractVersion,
-        navigation: governedNavigation,
+        mainContext,
+        governedNavigation,
         dependencyPolicy,
-        appName: app.name,
-      },
+      }),
     })),
     {
       // 加载前：更新当前激活子应用名，记录日志

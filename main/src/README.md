@@ -27,6 +27,7 @@
    - `runtime-state.js`
    - `resolve-app-entry.js`
    - `register-subapps.js`
+   - `dynamic-mount-manager.js`
    - `handle-runtime-rollback.js`
 
 4. `navigation/`
@@ -112,10 +113,12 @@
 2. `runtime-state.js`
 3. `resolve-app-entry.js`
 4. `register-subapps.js`
-5. `rollback-policy.js`
-6. `handle-runtime-rollback.js`
-7. `runtime-summary-builder.js`
-8. `runtime-error-reporter.js`
+5. `create-subapp-host-props.js`
+6. `dynamic-mount-manager.js`
+7. `rollback-policy.js`
+8. `handle-runtime-rollback.js`
+9. `runtime-summary-builder.js`
+10. `runtime-error-reporter.js`
 
 ### `runtime/subapps/`
 
@@ -172,6 +175,19 @@
    检查：
    - 注册的 `container`
    - 注入的 `props`
+
+### 1.1 动态挂载不生效
+
+按这个顺序查：
+
+1. `dynamic-mount-manager.js`
+   看 `appKey / slotKey / container` 是否有效
+
+2. `create-subapp-host-props.js`
+   看 dynamic mount 是否仍复用了同一套 host props
+
+3. `resolve-app-entry.js`
+   看当前 channel 下是否解析到了正确 entry
 
 ### 2. 打开的不是预期入口
 
@@ -307,3 +323,4 @@
 1. 子应用不要直接 import `main/src/*`
 2. 主应用只负责注入能力，不负责规定子应用业务目录与实现细节
 3. 子应用把读取 props、contract 校验、runtime vendor 解析、cleanup 收口在自己仓内的 `src/bridge/host-api.js`
+4. `registerMicroApps` 仍然是默认挂载模式；dynamic mount 只是 Host 自己的补充能力

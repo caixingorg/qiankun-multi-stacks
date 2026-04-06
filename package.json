@@ -41,8 +41,9 @@
     "contracts:main": "node ./tests/contracts/validate-main-contracts.mjs",
     "contracts:config": "node ./tests/contracts/validate-config-model.mjs",
     "contracts:bridge": "node ./tests/contracts/validate-bridge-contracts.mjs",
+    "contracts:dynamic-mount": "node ./tests/contracts/validate-dynamic-mount.mjs",
     "lint": "node ./scripts/lint/run-lint.mjs",
-    "test": "npm run contracts:registry && npm run contracts:runtime-vendor && npm run contracts:cleanup-bag && npm run contracts:main && npm run contracts:config && npm run contracts:bridge",
+    "test": "npm run contracts:registry && npm run contracts:runtime-vendor && npm run contracts:cleanup-bag && npm run contracts:main && npm run contracts:config && npm run contracts:bridge && npm run contracts:dynamic-mount",
     "smoke": "node ./scripts/smoke/run-smoke.mjs"
   },
   "devDependencies": {

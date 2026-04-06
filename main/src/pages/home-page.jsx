@@ -2,6 +2,7 @@
 // activate any child micro frontend.
 import React from 'react';
 import { Card } from '@/components/ui/card.jsx';
+import { DynamicMountDemo } from './dynamic-mount-demo.jsx';
 
 export function HomePage() {
   return (
@@ -14,6 +15,7 @@ export function HomePage() {
         The current template focuses on structure, contracts, runtime guards,
         and a stable shell rather than business detail pages.
       </Card>
+      <DynamicMountDemo />
     </div>
   );
 }
